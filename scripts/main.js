@@ -70,6 +70,8 @@ const departments = {
         ],
     }
 }
+//Note to reader: er is een foutmelding omdat 'userInput' meerdere malen wordt gebruikt vanwege de verschillende opdrachten, wat in JS niet is toegestaan binnen dezelfde scope.
+
 
 //1a. Functie om het aantal medewerkers van de Sales-afdeling te loggen:
 //Stap i: toegang tot het aantal medewerkers van de sales-afdeling:
@@ -97,8 +99,8 @@ console.log('De afdeling Customer Service heeft ' + numberOfEmployees + ' medewe
 const salesJob = departments.sales.jobs;
 let verkoopmanagerBeschrijving;
 //Stap ii: juiste functie zoeken en beschrijving ophalen:
-for (let i = 0; i < sales.Jobs.length; i++) {
-    if (salesJobs[i].title === 'Verkoopmanager') {
+for (let i = 0; i < salesJob.length; i++) {
+    if (salesJob[i].title === 'Verkoopmanager') {
         verkoopmanagerBeschrijving = salesJob[i].description;
         break; //Stop de lus zodra de juiste functie is gevonden
     }
@@ -127,6 +129,7 @@ if (userInput) {
         console.error('Ongeldige keuze. Probeer het opnieuw door de pagina te verversen.');
     }
 }
+
 //3a. Een nieuwe prompt - marketing
 //Stap i: vraag om functiekeuze binnen de marketingafdeling:
 const userInput = prompt("Je koos marketing. Over welke functie wil je meer weten? Voer een getal tussen 0 en 3 in.\n0: Marketingmanager\n1: Digital Marketing Specialist\n2: Contentmarketeer\n3: Branding Agent");
@@ -143,5 +146,36 @@ switch (userInput) {
     break;
 //3c. Maak de beslisboom gebruiksvriendelijk door een foutmelding toe te voegen:
     default:
-        console.error("Ongeldige keuze. Probeer het opneiuw door de pagina te verversen.")
+        console.error("Ongeldige keuze. Probeer het opnieuw door de pagina te verversen.")
+}
+
+//4a. Loggen van afdeling-beschrijving (eerste prompt).
+//Stap i: beschrijving van de afdeling op te halen
+if (chosenDepartment) {
+    const description = chosenDepartment.description;
+    const numberOfEmployees = chosenDepartment.numberOfEmployees;
+//Stap ii: string in gewenste format genereren:
+    const formattedDescription = '[' + userInput + '] is een leuke afdeling om te werken. Er werken op dit moment [' + aantalMedewerkers + '] medewerkers.';
+
+    console.log(formattedDescription);
+}
+//4b. prompt uit opdracht 3 omschrijven: de prompt toont de informatie op basis van ingevoerde afdeling door de gebruiker:
+//hardcoded prompt wordt veravangen met een dynamische prompt die naam van gekozen afdeling en de functietitels laat zien:
+const userInput = prompt("Je koos " + userInput + ". Over welke functie wil je meer weten? Voer een getal tussen 0 en 3 in.\n0: " + departments[userInput].jobs[0].title + "\n1:" + departments[userInput].jobs[1].title + "\n2: " + departments[userInput].jobs[2].title + "\n3: " + departments[userInput].jobs[3].title);
+//4c. Afdeling-naam wordt gebruikt die gebruiker heeft ingevoerd:
+switch (userInput) {
+    case '0':
+        console.log("Je koos " + departments[userInput].jobs[0].title + ". " + departments[userInput].jobs[0].description);
+        break;
+    case '1':
+        console.log("Je koos " + departments[userInput].jobs[1].title + ". " + departments[userInput].jobs[1].description);
+        break;
+    case '2':
+        console.log("Je koos " + departments[userInput].jobs[2].title + ". " + departments[userInput].jobs[2].description);
+        break;
+    case '3':
+        console.log("Je koos " + departments[userInput].jobs[3].title + ". " + departments[userInput].jobs[3].description);
+        break;
+    default:
+        console.error("Ongeldige keuze. Probeer het opnieuw door de pagina te verversen.");
 }
