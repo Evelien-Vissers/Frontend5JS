@@ -71,4 +71,37 @@ const departments = {
     }
 }
 
-console.log(departments);
+//1a. Functie om het aantal medewerkers van de Sales-afdeling te loggen:
+//Stap i: toegang tot het aantal medewerkers van de sales-afdeling:
+const numberOfSalesEmployees = departments.sales.numberOfEmployees;
+//Stap ii: Loggen in het gewenste format:
+console.log('De afdeling Sales heeft ' + numberOfSalesEmployees + ' medewerkers');
+
+//1b. Functie om de afdeling-beschrijving van de marketingafdeling te loggen:
+//Stap i: toegang krijgen tot de beschrijving van de marketingafdeling:
+const marketingDescription = departments.marketing.description;
+//Stap ii: Het bericht samenstellen:
+const message = 'Marketing is een leuke afdeling om te werken. ' + marketingDescription;
+//Stap iii: Het bericht naar de console loggen:
+console.log(message);
+
+//1c. Log het aantal medewerkers van de customer-service-afdeling in de console:
+//Stap i: toegang krijgen tot de customer-service-afdeling:
+const customerServiceDepartment =departments['customer service'];
+//Stap ii: aantal medewerkers ophalen:
+const numberOfEmployees = customerServiceDepartment.numberOfEmployees;
+console.log('De afdeling Customer Service heeft ' + numberOfEmployees + ' medewerkers');
+
+//1d. Log de beschrijving van de functie "Verkoopmanager" in de console.
+//Stap i: toegang krijgen tot de beschrijving van "Verkoopmanager":
+const salesJob = departments.sales.jobs;
+let verkoopmanagerBeschrijving;
+//Stap ii: juiste functie zoeken en beschrijving ophalen:
+for (let i = 0; i < sales.Jobs.length; i++) {
+    if (salesJobs[i].title === 'Verkoopmanager') {
+        verkoopmanagerBeschrijving = salesJob[i].description;
+        break; //Stop de lus zodra de juiste functie is gevonden
+    }
+}
+//Stap iii: Log beschrijving in de console:
+console.log(verkoopmanagerBeschrijving);
