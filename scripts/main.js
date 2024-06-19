@@ -127,3 +127,21 @@ if (userInput) {
         console.error('Ongeldige keuze. Probeer het opnieuw door de pagina te verversen.');
     }
 }
+//3a. Een nieuwe prompt - marketing
+//Stap i: vraag om functiekeuze binnen de marketingafdeling:
+const userInput = prompt("Je koos marketing. Over welke functie wil je meer weten? Voer een getal tussen 0 en 3 in.\n0: Marketingmanager\n1: Digital Marketing Specialist\n2: Contentmarketeer\n3: Branding Agent");
+//3b. Beslisstructuur om de functiebeschrijving op te halen obv de ingevoerde index:
+//Stap ii: Gebruik de ingevoerde waarde om de juiste functie op te halen en log de beschrijving:
+switch (userInput) {
+    case '0': console.log("Je koos Marketingmanager. Een uitdagende rol!" + departments.marketing.jobs[0].description);
+    break;
+    case '1': console.log("Je koos Digital Marketing Specialist. Een uitdagende rol! " + departments.marketing.jobs[1].description);
+    break;
+    case '2': console.log("Je koos Contentmarketeer. Een uitdagende rol!" + departments.marketing.jobs[2].description);
+    break;
+    case '3': console.log("Je koos Branding Agent. Een uitdagende rol!" + departments.marketing.jobs[3].description);
+    break;
+//3c. Maak de beslisboom gebruiksvriendelijk door een foutmelding toe te voegen:
+    default:
+        console.error("Ongeldige keuze. Probeer het opneiuw door de pagina te verversen.")
+}
