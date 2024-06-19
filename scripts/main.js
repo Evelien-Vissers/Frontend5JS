@@ -105,3 +105,25 @@ for (let i = 0; i < sales.Jobs.length; i++) {
 }
 //Stap iii: Log beschrijving in de console:
 console.log(verkoopmanagerBeschrijving);
+
+//2a. Gebruik een prompt en sla gebruikersinvoer op:
+//Stap i: prompt om gebruiker te vragen naar de afdeling:
+const userInput = prompt('Over welke afdeling wil je meer informatie? Kies uit: [marketing / sales / customer-service]');
+//Stap ii: het antwoord van gebruiker loggen in de console:
+console.log(userInput);
+
+//2b. Beschrijving van de afdeling in de console oggen obv wat de gebruiker invoert:
+//Stap i: Vraag aan de gebruiker - zie regel 111 hierboven
+//Stap ii: Beslissingsstructuur om de juiste beschrijving te loggen.
+//Hier wordt een 'if-else' beslissingsstructuur gebruikt om te controleren of de gebruiker een geldige afdeling heeft ingevoerd die overeenkomt met de keys in het 'departments' object:
+if (userInput) {
+    const userInputLowerCase = userInput.toLowerCase(); //zet invoer om naar kleine letters
+    const chosenDepartment = departments[userInputLowerCase]; //zoek de afdeling in het departments
+    if (chosenDepartment) {
+        const description = chosenDepartment.description;
+        console.log('Je koos ' + userInput + '. ' + description);
+//2c. Invoeging 'console.error()' om aan te geven dat er iets mis is met de invoer van de gebruiker:
+    } else {
+        console.error('Ongeldige keuze. Probeer het opnieuw door de pagina te verversen.');
+    }
+}
